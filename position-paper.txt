@@ -1,0 +1,67 @@
+#+Title:  Position Paper on Cloud Requirements
+#+Date:   [2014-09-08 Monday]
+
+
+* Cloud Infrastructure Requirements
+   
+  The paper will briefly outline the insfrastructure needs for the 
+  Virtual Labs Engineering and Architecture Division (VLEAD)
+
+
+** Hosting Environment
+   
+   VLEAD is central platform engineering team for the virtual labs project. 
+   The primary goal is provide a uniform platform for all the virtual labs to
+   run from. 
+   
+   These labs seen as a collection of web applications interact with a common
+   set of services developed by VLEAD and residing on the cloud. 
+
+   #+BEGIN_HTML
+   <img src="https://docs.google.com/drawings/d/1uZahThX1odrMmld4HKITzdReFeFB1P0GDbrgLuuu3nY/pub?w=8000&h=350">
+   #+END_HTML
+
+   Each of these labs and services will run from an individual virtual
+   machine. Currently, these are running from VLEAD infrastructure, but to reap 
+   the benefits of cloud - availability, scalability among many - the same will 
+   be migrated to cloud. The below figure depicts the stack when migrated to cloud.
+   
+   #+BEGIN_HTML
+   <img src="https://docs.google.com/drawings/d/10geX5RMFtGePqmcU9MIwbP8ILB0xRhelWGt0anSTgdE/pub?w=4000&h=350">
+   #+END_HTML
+   
+** Requirements
+  
+*** Resource requirements 
+   There are about 140 virtual labs each of which can be hosted in a separate
+   VM.  Other possibility is to create large VMs where labs will be hosted in
+   separate containers.  Either way VMs or containers will be used for isolation
+   among labs.  For labs and various lab services, we foresee requirement of
+   about 150 VMs with varying resources.  Each of these VMs would need resources
+   ranging from 2 GB RAM to even upwards of 16GB RAM per VM.
+
+   Labs that are intensive in processing would need more CPU cores and probably
+   more RAM than labs that serve static pages.  Popularity of a lab will also
+   determine the resource allocation to the VM or the container from which it
+   runs.
+
+   Since the exact resource requirements of the lab cannot be
+   predicted, VLEAD is counting on scalability and dynamic resource
+   allocation capabilities of the cloud.
+
+   For dynamic scheduling of resources for lab based on the usage, virtual
+   machines are the only bet, unless VLEAD develops it's own elastic mechanism
+   for the containers.
+
+
+*** API Requirements
+    We need the cloud to support management of VMs (creation, termination,
+    reboot, etc.) through an API or command-line interface.  This is necessary
+    as we plan to make the entire setup as automated as possible.  It should be
+    possible for the system to create new VMs and deploy new version of a lab on
+    a new VM without requiring human intervention.
+   
+    Further, we are also looking for external resource monitoring through base
+    machine in terms of CPU usage, disk usage, network usage, etc.  This is
+    required to detect, if VM is hanged or crashed without depending on a local
+    agent running inside VM.

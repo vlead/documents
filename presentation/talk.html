@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Cloud Infrastructure Requirements [2014-09-08 Mon]</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="title" content="Cloud Infrastructure Requirements [2014-09-08 Mon]"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2014-09-08"/>
+<meta name="author" content="Venkatesh Choppella, Virtual Labs Engineering and Architecture Division (VLEAD)"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="css/worg-style.css" />
+<link rel="stylesheet" type="text/css" href="css/override.css" />
+<script type="text/javascript" src="js/org-info.js">
+/**
+ *
+ * @source: js/org-info.js
+ *
+ * @licstart  The following is the entire license notice for the
+ *  JavaScript code in js/org-info.js.
+ *
+ * Copyright (C) 2012-2013  Sebastian Rose
+ *
+ *
+ * The JavaScript code in this tag is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU
+ * General Public License (GNU GPL) as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option)
+ * any later version.  The code is distributed WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+ *
+ * As additional permission under GNU GPL version 3 section 7, you
+ * may distribute non-source (e.g., minimized or compacted) forms of
+ * that code without the copy of the GNU GPL normally required by
+ * section 4, provided you include this license notice and a URL
+ * through which recipients can access the Corresponding Source.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in js/org-info.js.
+ *
+ */
+</script>
+
+<script type="text/javascript">
+
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "1");
+org_html_manager.set("LINK_HOME", "index.html");
+org_html_manager.set("LINK_UP", "index.html");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "1");
+org_html_manager.set("VIEW", "info");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+</script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="index.html"> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">Cloud Infrastructure Requirements [2014-09-08 Mon]</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Environment</a>
+<ul>
+<li><a href="#sec-1-1">1.1 Labs and Sevices</a></li>
+<li><a href="#sec-1-2">1.2 Labs and Services in View</a></li>
+<li><a href="#sec-1-3">1.3 Hosting Environemnt</a></li>
+<li><a href="#sec-1-4">1.4 Stack In View</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2 Requirements</a>
+<ul>
+<li><a href="#sec-2-1">2.1 Resource Requirements</a></li>
+<li><a href="#sec-2-2">2.2 Elasticity</a></li>
+<li><a href="#sec-2-3">2.3 API Requirements of Cloud</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Environment</h2>
+<div class="outline-text-2" id="text-1">
+
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Labs and Sevices</h3>
+<div class="outline-text-3" id="text-1-1">
+
+
+<dl>
+<dt>VLEAD</dt><dd>Central Platform Engineering team for the virtual labs project. 
+</dd>
+</dl>
+
+
+
+<dl>
+<dt>Primary goal</dt><dd>To provide a uniform platform for all the virtual labs to run from. 
+</dd>
+</dl>
+
+
+
+<dl>
+<dt>Collection</dt><dd>Of web applications (labs) that interact with a common set of services developed by VLEAD and residing on the cloud. 
+</dd>
+</dl>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Labs and Services in View</h3>
+<div class="outline-text-3" id="text-1-2">
+
+
+
+
+   <img src="https://docs.google.com/drawings/d/1uZahThX1odrMmld4HKITzdReFeFB1P0GDbrgLuuu3nY/pub?w=8000&h=350">
+
+<p>
+<a href="https://docs.google.com/a/vlabs.ac.in/drawings/d/1uZahThX1odrMmld4HKITzdReFeFB1P0GDbrgLuuu3nY/edit">edit image</a>
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Hosting Environemnt</h3>
+<div class="outline-text-3" id="text-1-3">
+
+
+<dl>
+<dt>Individual VM</dt><dd>Each lab runs in a separate VM that will ensure isolation of a problem.
+</dd>
+</dl>
+
+
+
+<dl>
+<dt>Auto Deployment</dt><dd>Each Lab is deployed without any manual intervention.
+</dd>
+</dl>
+
+
+
+<dl>
+<dt>CLoud API</dt><dd>API provided by cloud provider will be in auto deployment.
+</dd>
+</dl>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Stack In View</h3>
+<div class="outline-text-3" id="text-1-4">
+
+
+
+
+   <img src="https://docs.google.com/drawings/d/10geX5RMFtGePqmcU9MIwbP8ILB0xRhelWGt0anSTgdE/pub?w=8000&h=500">
+
+<p>
+<a href="https://docs.google.com/a/vlabs.ac.in/drawings/d/10geX5RMFtGePqmcU9MIwbP8ILB0xRhelWGt0anSTgdE/edit">edit image</a>                    
+</p>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Requirements</h2>
+<div class="outline-text-2" id="text-2">
+
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Resource Requirements</h3>
+<div class="outline-text-3" id="text-2-1">
+
+
+<dl>
+<dt>Number of VMS</dt><dd>About 140 labs and other services, therefore about 150 VMS
+
+</dd>
+<dt>Containers or VMs</dt><dd>VM per each lab or a large VM containing multiple containers.
+
+</dd>
+<dt>Varying Specifications</dt><dd>Each of the VM might vary from 2 GB RAM to 16 GB RAM.
+</dd>
+</dl>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Elasticity</h3>
+<div class="outline-text-3" id="text-2-2">
+
+
+<dl>
+<dt>Process intensive labs</dt><dd>Would need more CPU and probably more RAM than labs that serve static pages.
+
+</dd>
+<dt>Popularity of a lab</dt><dd>More resource allocation on demand.
+
+</dd>
+<dt>Cannot exactly predict resource requirement</dt><dd>Rely on scalability and dynamic resource allocation of cloud.
+</dd>
+</dl>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> API Requirements of Cloud</h3>
+<div class="outline-text-3" id="text-2-3">
+
+
+<dl>
+<dt>Management of VMs</dt><dd>Creation, termination, reboot etc through an API.
+
+</dd>
+<dt>Necissity of API</dt><dd>Management of Labs (deployment, undeployment, resource usage) with manual intervention.
+
+</dd>
+<dt>External Resource Monitoring</dt><dd>Cloud services to monitor VMs - to delink the dependency on a local agent
+</dd>
+</dl>
+
+
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
