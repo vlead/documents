@@ -4,7 +4,7 @@
 
 * Cloud Infrastructure Requirements
    
-  The paper will briefly outline the insfrastructure needs for the 
+  This paper will briefly outline the insfrastructure needs for the 
   Virtual Labs Engineering and Architecture Division (VLEAD)
 
 
